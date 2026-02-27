@@ -113,9 +113,11 @@ Bot:   (Generates summary in Hindi)
 
 The bot generates structured summaries with video metadata, key points, timestamps, and core takeaway:
 
-![Summary - Key Points](screenshots/summary_part1.png)
+![Summary - Video Info & Key Points](screenshots/summary_part1.png)
 
-![Summary - Timestamps & Takeaway](screenshots/summary_part2.png)
+![Summary - Timestamps & Core Takeaway](screenshots/summary_part2.png)
+
+![Follow-up Options](screenshots/summary_part3.png)
 
 ---
 
