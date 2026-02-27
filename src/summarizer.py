@@ -43,7 +43,7 @@ def _call_ollama(messages: list[dict], max_tokens: int = 2048) -> str:
             messages=messages,
             options={"temperature": 0.3, "num_predict": max_tokens},
         )
-        return response.message.content
+        return response["message"]["content"]
     except ollama.ResponseError as e:
         logger.error(f"Ollama response error: {e}")
         return f"❌ Ollama model error: {e}"
@@ -313,8 +313,18 @@ def check_ollama_connection() -> dict:
     """Check if Ollama is reachable and the configured model is available."""
     try:
         client = _get_client()
-        models = client.list()
-        model_names = [m.model for m in models.models]
+        response = client.list()
+        # Handle both dict and object responses
+        if isinstance(response, dict):
+            models_data = response.get("models", [])
+        else:
+            models_data = getattr(response, "models", [])
+        model_names = []
+        for m in models_data:
+            if isinstance(m, dict):
+                model_names.append(m.get("model", m.get("name", "unknown")))
+            else:
+                model_names.append(getattr(m, "model", str(m)))
         return {"connected": True, "models": model_names, "error": None}
     except Exception as e:
         return {"connected": False, "models": [], "error": str(e)}

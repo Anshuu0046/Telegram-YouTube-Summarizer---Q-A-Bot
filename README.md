@@ -109,15 +109,13 @@ Bot:   (Generates summary in Hindi)
 
 ## 📸 Screenshots
 
-> Screenshots will be added after testing the bot.
+### Video Summary (Mortal Kombat II Trailer)
 
-<!-- 
-Add screenshots here:
-![Start Command](screenshots/start.png)
-![Summary Example](screenshots/summary.png)
-![Q&A Example](screenshots/qa.png)
-![Hindi Summary](screenshots/hindi.png)
--->
+The bot generates structured summaries with video metadata, key points, timestamps, and core takeaway:
+
+![Summary - Key Points](screenshots/summary_part1.png)
+
+![Summary - Timestamps & Takeaway](screenshots/summary_part2.png)
 
 ---
 
